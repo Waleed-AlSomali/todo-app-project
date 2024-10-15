@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    
-</body>
+
+    <body>
+
+        <!-- Container build starts here  -->
+
+        <div class="container">
+            
+            <div class="todo-app">
+                <h1 id="title"> To-do List </h1>
+
+                <form id="task-form" action="forms">
+                        
+                    <div class="form-group">
+
+                        <label for="task"> Task: </label>
+                        <input type="text" id="task" placeholder="add your task" name="task" required />
+                        <button id="addbtn" type="submit"> Add </button>
+                    </div>
+                        
+                   
+                </form>
+            </div>
+                <h2 id="Task-counter"> counter: 0 </h2>
+
+        <!-- Container build ends here  -->
+
+            <!-- list all Tasks -->
+                <div class="taskList" id="taskList"></div>
+
+
+           
+        </div>
+        <script type="module" src="/index.js"></script>
+    </body>
+
 </html>
