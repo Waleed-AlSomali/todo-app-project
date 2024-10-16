@@ -44,8 +44,8 @@ const deleteTaskbyId = (id) => {
 
 const updateTaskbyId = (task) => {
     taskElement.value = task.ongoingtask;
-
- };
+    
+};
 
 const renderTasks = () => {
 
