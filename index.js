@@ -1,11 +1,5 @@
 let todolist = [];
 
-const resetForm = () => {
-
-    taskElement.value = '';
-
-}
-
 const setTasksToLocalStorage = (data) => {
 
     localStorage.setItem('todolist', JSON.stringify(data));
@@ -20,8 +14,8 @@ const taskElement = document.getElementById('task');
 const formElement = document.getElementById('task-form');
 const taskListElement = document.getElementById('taskList');
 
-formElement.addEventListener('submit', (Event) => {
-    Event.preventDefault();
+formElement.addEventListener('submit', (event) => {
+    event.preventDefault();
     const newtask = {
         
         id: Date.now() + Math.random(),
@@ -30,7 +24,7 @@ formElement.addEventListener('submit', (Event) => {
         todolist.push(newtask); 
        
         setTasksToLocalStorage(todolist);
-        resetForm();
+        formElement.reset();
         renderTasks();
 });
 
@@ -54,33 +48,33 @@ todolist = getTasksFromLocalStorage('todolist');
 taskListElement.innerHTML = '';
 todolist.map((task) => {
 
-    const TaskDivElement = document.createElement('div');
+    const taskDivElement = document.createElement('div');
 
-    TaskDivElement.textContent =  `${task.ongoingtask}`;
-    TaskDivElement.classList.add('task')
+    taskDivElement.textContent =  `${task.ongoingtask}`;
+    taskDivElement.classList.add('task')
 
     
-    const TaskDeleteButton = document.createElement('button');
-    TaskDeleteButton.textContent = `Delete`;
-    TaskDeleteButton.addEventListener('click', () => deleteTaskbyId(task.id));
+    const taskDeleteButton = document.createElement('button');
+    taskDeleteButton.textContent = `Delete`;
+    taskDeleteButton.addEventListener('click', () => deleteTaskbyId(task.id));
 
-    TaskDivElement.appendChild(TaskDeleteButton);
+    taskDivElement.appendChild(taskDeleteButton);
 
-    const TaskEditButton = document.createElement('button');
-    TaskEditButton.textContent = `Edit`;
-    TaskEditButton.addEventListener('click', () => updateTaskbyId(task));
+    const taskEditButton = document.createElement('button');
+    taskEditButton.textContent = `Edit`;
+    taskEditButton.addEventListener('click', () => updateTaskbyId(task));
 
-    TaskDivElement.appendChild(TaskEditButton);
+    taskDivElement.appendChild(taskEditButton);
 
 
    
-    taskListElement.appendChild(TaskDivElement); 
+    taskListElement.appendChild(taskDivElement); 
 });
 
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderTasks();
+   
 });
 
  
